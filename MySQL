@@ -1,0 +1,12 @@
+CREATE DATABASE sdn_karanghaur01;
+
+USE sdn_karanghaur01;
+
+CREATE TABLE siswa (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100),
+    nik VARCHAR(20),
+    kk VARCHAR(20),
+    akta VARCHAR(20),
+    kelas VARCHAR(10)
+);
