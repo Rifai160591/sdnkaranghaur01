@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat - SD NEGERI KARANGHAUR 01</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://freeimage.host/i/FVAPi6F" alt="Logo SD NEGERI KARANGHAUR 01">
+                <h3>SD NEGERI KARANGHAUR 01</h3>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="spmb.html"><i class="fas fa-user-graduate"></i> SPMB</a></li>
+                    <li><a href="modul-ajar.html"><i class="fas fa-book-open"></i> Modul Ajar</a></li>
+                    <li><a href="absensi.html"><i class="fas fa-user-check"></i> Absensi</a></li>
+                    <li><a href="surat.html" class="active"><i class="fas fa-file-alt"></i> Surat</a></li>
+                    <li class="submenu">
+                        <a href="#"><i class="fas fa-cog"></i> Pengaturan <i class="fas fa-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Menu</a></li>
+                            <li><a href="#">Konten</a></li>
+                            <li><a href="#">Pengguna</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="php/backup-restore.php"><i class="fas fa-database"></i> Backup & Restore</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Lihat Website</a></li>
+                    <li><a href="php/auth.php?logout=true"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2>Manajemen Surat</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-info">
+                        <img src="https://picsum.photos/seed/admin/40/40.jpg" alt="Admin">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Surat Content -->
+            <div class="surat-content">
+                <div class="surat-tabs">
+                    <button class="tab-btn active" data-tab="surat-masuk">Surat Masuk</button>
+                    <button class="tab-btn" data-tab="surat-keluar">Surat Keluar</button>
+                    <button class="tab-btn" data-tab="disposisi">Disposisi</button>
+                </div>
+
+                <!-- Surat Masuk Tab -->
+                <div class="tab-content active" id="surat-masuk">
+                    <div class="table-header">
+                        <div class="search-box">
+                            <input type="text" placeholder="Cari surat masuk...">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="table-actions">
+                            <button class="btn-filter"><i class="fas fa-filter"></i> Filter</button>
+                            <button class="btn-export"><i class="fas fa-download"></i> Export</button>
+                            <button class="btn-add" onclick="showAddSuratMasukForm()"><i class="fas fa-plus"></i> Tambah</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>No. Agenda</th>
+                                    <th>No. Surat</th>
+                                    <th>Tanggal Surat</th>
+                                    <th>Asal Surat</th>
+                                    <th>Perihal</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>001/SM/VI/2023</td>
+                                    <td>421.1/1234/Disdik</td>
+                                    <td>10 Juni 2023</td>
+                                    <td>Dinas Pendidikan</td>
+                                    <td>Undangan Rapat Koordinasi</td>
+                                    <td><span class="status-badge processed">Diproses</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>002/SM/VI/2023</td>
+                                    <td>421.1/1235/Disdik</td>
+                                    <td>8 Juni 2023</td>
+                                    <td>Dinas Pendidikan</td>
+                                    <td>Pemberitahuan Kegiatan OSN</td>
+                                    <td><span class="status-badge pending">Menunggu</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>003/SM/VI/2023</td>
+                                    <td>421.1/1236/Disdik</td>
+                                    <td>5 Juni 2023</td>
+                                    <td>Dinas Pendidikan</td>
+                                    <td>Pedoman Pelaksanaan PPDB</td>
+                                    <td><span class="status-badge completed">Selesai</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button class="page-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Surat Keluar Tab -->
+                <div class="tab-content" id="surat-keluar">
+                    <div class="table-header">
+                        <div class="search-box">
+                            <input type="text" placeholder="Cari surat keluar...">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="table-actions">
+                            <button class="btn-filter"><i class="fas fa-filter"></i> Filter</button>
+                            <button class="btn-export"><i class="fas fa-download"></i> Export</button>
+                            <button class="btn-add" onclick="showAddSuratKeluarForm()"><i class="fas fa-plus"></i> Tambah</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>No. Agenda</th>
+                                    <th>No. Surat</th>
+                                    <th>Tanggal Surat</th>
+                                    <th>Tujuan Surat</th>
+                                    <th>Perihal</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>001/SK/VI/2023</td>
+                                    <td>421.1/421/SDN-KH01/VI/2023</td>
+                                    <td>12 Juni 2023</td>
+                                    <td>Orang Tua Siswa</td>
+                                    <td>Undangan Rapat Komite Sekolah</td>
+                                    <td><span class="status-badge sent">Terkirim</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>002/SK/VI/2023</td>
+                                    <td>421.1/422/SDN-KH01/VI/2023</td>
+                                    <td>9 Juni 2023</td>
+                                    <td>Dinas Pendidikan</td>
+                                    <td>Laporan Kegiatan Sekolah</td>
+                                    <td><span class="status-badge sent">Terkirim</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>003/SK/VI/2023</td>
+                                    <td>421.1/423/SDN-KH01/VI/2023</td>
+                                    <td>6 Juni 2023</td>
+                                    <td>Komite Sekolah</td>
+                                    <td>Permohonan Bantuan Sarana Prasarana</td>
+                                    <td><span class="status-badge draft">Draft</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button class="page-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Disposisi Tab -->
+                <div class="tab-content" id="disposisi">
+                    <div class="table-header">
+                        <div class="search-box">
+                            <input type="text" placeholder="Cari disposisi...">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="table-actions">
+                            <button class="btn-filter"><i class="fas fa-filter"></i> Filter</button>
+                            <button class="btn-export"><i class="fas fa-download"></i> Export</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>No. Agenda</th>
+                                    <th>No. Surat</th>
+                                    <th>Tanggal Surat</th>
+                                    <th>Asal Surat</th>
+                                    <th>Perihal</th>
+                                    <th>Diteruskan Kepada</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>001/SM/VI/2023</td>
+                                    <td>421.1/1234/Disdik</td>
+                                    <td>10 Juni 2023</td>
+                                    <td>Dinas Pendidikan</td>
+                                    <td>Undangan Rapat Koordinasi</td>
+                                    <td>Wakil Kepala Sekolah</td>
+                                    <td><span class="status-badge processed">Diproses</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>002/SM/VI/2023</td>
+                                    <td>421.1/1235/Disdik</td>
+                                    <td>8 Juni 2023</td>
+                                    <td>Dinas Pendidikan</td>
+                                    <td>Pemberitahuan Kegiatan OSN</td>
+                                    <td>Guru Bidang Studi</td>
+                                    <td><span class="status-badge pending">Menunggu</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>003/SM/VI/2023</td>
+                                    <td>421.1/1236/Disdik</td>
+                                    <td>5 Juni 2023</td>
+                                    <td>Dinas Pendidikan</td>
+                                    <td>Pedoman Pelaksanaan PPDB</td>
+                                    <td>Staf Administrasi</td>
+                                    <td><span class="status-badge completed">Selesai</span></td>
+                                    <td>
+                                        <button class="btn-action view" title="Lihat"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action edit" title="Edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action delete" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button class="btn-action download" title="Download"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button class="page-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Form Surat Masuk -->
+    <div id="modalSuratMasuk" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Surat Masuk</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="suratMasukForm" action="php/surat.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="jenis_surat" value="masuk">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="noAgendaMasuk">No. Agenda <span class="required">*</span></label>
+                            <input type="text" id="noAgendaMasuk" name="noAgenda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noSuratMasuk">No. Surat <span class="required">*</span></label>
+                            <input type="text" id="noSuratMasuk" name="noSurat" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tanggalSuratMasuk">Tanggal Surat <span class="required">*</span></label>
+                            <input type="date" id="tanggalSuratMasuk" name="tanggalSurat" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggalTerima">Tanggal Diterima <span class="required">*</span></label>
+                            <input type="date" id="tanggalTerima" name="tanggalTerima" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="asalSurat">Asal Surat <span class="required">*</span></label>
+                            <input type="text" id="asalSurat" name="asalSurat" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sifatSurat">Sifat Surat</label>
+                            <select id="sifatSurat" name="sifatSurat">
+                                <option value="">-- Pilih --</option>
+                                <option value="Biasa">Biasa</option>
+                                <option value="Rahasia">Rahasia</option>
+                                <option value="Sangat Rahasia">Sangat Rahasia</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perihalMasuk">Perihal <span class="required">*</span></label>
+                        <input type="text" id="perihalMasuk" name="perihal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fileSuratMasuk">File Surat</label>
+                        <input type="file" id="fileSuratMasuk" name="fileSurat" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Simpan</button>
+                        <button type="reset" class="btn-reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Form Surat Keluar -->
+    <div id="modalSuratKeluar" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Surat Keluar</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="suratKeluarForm" action="php/surat.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="jenis_surat" value="keluar">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="noAgendaKeluar">No. Agenda <span class="required">*</span></label>
+                            <input type="text" id="noAgendaKeluar" name="noAgenda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noSuratKeluar">No. Surat <span class="required">*</span></label>
+                            <input type="text" id="noSuratKeluar" name="noSurat" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tanggalSuratKeluar">Tanggal Surat <span class="required">*</span></label>
+                            <input type="date" id="tanggalSuratKeluar" name="tanggalSurat" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tujuanSurat">Tujuan Surat <span class="required">*</span></label>
+                            <input type="text" id="tujuanSurat" name="tujuanSurat" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perihalKeluar">Perihal <span class="required">*</span></label>
+                        <input type="text" id="perihalKeluar" name="perihal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="isiRingkas">Isi Ringkas</label>
+                        <textarea id="isiRingkas" name="isiRingkas" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="fileSuratKeluar">File Surat</label>
+                        <input type="file" id="fileSuratKeluar" name="fileSurat" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Simpan</button>
+                        <button type="reset" class="btn-reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/surat.js"></script>
+</body>
+</html>
